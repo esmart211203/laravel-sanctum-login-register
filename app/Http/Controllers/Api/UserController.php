@@ -77,4 +77,35 @@ class UserController extends Controller
             ], 500);
         }
     }
+
+    public function change_password(Request $request){
+        $validatePassword = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'password' => 'required|min:6|max:100',
+            'confirm_password' => 'required|same:password'
+        ]);
+    
+        if($validatePassword->fails()){
+            return response()->json([
+                'message' => 'Validation errors', 
+                'errors' => $validatePassword->errors()
+            ], 400);
+        }
+    
+        $user = $request->user();
+    
+        if(Hash::check($request->old_password, $user->password)){
+            $user->update([
+                'password' => Hash::make($request->password)
+            ]);
+    
+            return response()->json([
+                'message' => 'Password successfully updated',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Old password does not match',
+            ], 400);
+        }
+    }
 }
