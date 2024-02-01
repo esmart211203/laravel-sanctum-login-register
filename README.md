@@ -7,6 +7,6 @@ Với Sanctum, bạn có thể tạo token xác thực cho người dùng đã �
 
 Sanctum cũng hỗ trợ việc xác thực người dùng thông qua session. Điều này cho phép bạn xác thực người dùng thông qua session cookie và sử dụng Sanctum để bảo vệ các yêu cầu API cùng với các yêu cầu web thông thường.
 ## Cách cài đặt 
-'composer require laravel/sanctum'
+`composer require laravel/sanctum`
 ---
 ** Sau khi cài đặt gói, bạn cần cấu hình ứng dụng Laravel của mình để sử dụng Sanctum. Vui lòng tham khảo tài liệu chính thức của Laravel Sanctum để biết hướng dẫn chi tiết về cách cấu hình và sử dụng gói một cách hiệu quả. **
